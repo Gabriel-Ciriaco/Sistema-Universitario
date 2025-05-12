@@ -63,7 +63,7 @@ public class Departamento {
     for (int i = 0; i < this.funcionarios.length; i++)
     {
       if (this.funcionarios[i] != null &&
-          this.funcionarios[i].getCodigo() == codigoFuncionario)
+          this.funcionarios[i].getCodigo().equals(codigoFuncionario))
       {
         int j;
 

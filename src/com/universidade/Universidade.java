@@ -50,7 +50,7 @@ public class Universidade {
     for (int i = 0; i < this.departamentos.length; i++)
     {
       if (this.departamentos[i] != null &&
-          this.departamentos[i].getCodigo() == codigoDepartamento)
+          this.departamentos[i].getCodigo().equals(codigoDepartamento))
         {
           int j;
 
