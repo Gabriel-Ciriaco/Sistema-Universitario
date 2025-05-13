@@ -30,9 +30,7 @@ public class Universidade {
 
   public boolean addDepartamento(Departamento departamento)
   {
-    int i;
-
-    for (i = 0; i < this.departamentos.length; i++)
+    for (int i = 0; i < this.departamentos.length; i++)
     {
       if (this.departamentos[i] == null)
       {

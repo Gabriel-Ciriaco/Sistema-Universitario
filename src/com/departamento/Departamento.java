@@ -43,9 +43,7 @@ public class Departamento {
 
   public boolean addFuncionario(Funcionario funcionario)
   {
-    int i;
-
-    for (i = 0; i < this.funcionarios.length; i++)
+    for (int i = 0; i < this.funcionarios.length; i++)
     {
       if (this.funcionarios[i] == null)
       {
