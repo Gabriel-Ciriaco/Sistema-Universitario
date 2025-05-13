@@ -1,5 +1,7 @@
 package com.funcionario;
 
+import com.ConstantesSistema;
+
 
 public class Tecnico extends Funcionario {
   private String funcao;
@@ -23,7 +25,6 @@ public class Tecnico extends Funcionario {
 
   public double calcularSalario()
   {
-    /** TO-DO: Incluir o cálculo do salário do Técnico. */
-    return 0.0;
+    return this.getSalario() * ( 1 + ConstantesSistema.adicionalTecnico(this.getNivel()));
   }
 }

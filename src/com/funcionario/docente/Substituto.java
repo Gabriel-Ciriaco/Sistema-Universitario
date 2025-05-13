@@ -1,5 +1,6 @@
 package com.funcionario.docente;
 
+import com.ConstantesSistema;
 
 public class Substituto extends Docente {
 
@@ -23,20 +24,7 @@ public class Substituto extends Docente {
 
     public double calcularSalario()
     {
-        double adicional;
-
-        if(getNivel().equals("S1"))
-        {
-            adicional = 0.05;
-        
-        }else{
-
-            adicional = 0.1;
-
-        }
-
-        return getSalario() + (getSalario() * adicional);
+      return getSalario() + (getSalario() * ConstantesSistema.adicionalSubstituto(getNivel()));
     }
 
-    
 }
