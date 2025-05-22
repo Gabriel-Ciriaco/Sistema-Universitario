@@ -28,6 +28,19 @@ public class Universidade {
     return this.departamentos;
   }
 
+  public Departamento getDepartamentoPorCodigo(String codigo)
+  {
+    for(int i=0; i<departamentos.length; i++)
+    {
+      if(departamentos[i].getCodigo().equals(codigo))
+      {
+        return departamentos[i];
+      }
+    }
+
+    return null;
+  }
+
   public boolean addDepartamento(Departamento departamento)
   {
     for (int i = 0; i < this.departamentos.length; i++)
@@ -65,4 +78,20 @@ public class Universidade {
 
     return false;
   }
+
+  public boolean existeDepartamento(String codigoDepartamento)
+  {
+    for(int i = 0; i < this.departamentos.length; i++)
+    {
+      if(this.departamentos[i] != null && this.departamentos[i].getCodigo().equals(codigoDepartamento))
+      {
+        return true;
+      }
+    }
+
+    return false;
+
+  }
+
+
 }

@@ -2,6 +2,14 @@ package com;
 
 public abstract class ConstantesSistema {
 
+  public static int getNumDepartamentos()
+  {
+    int numDepartamentos = 8;
+    
+    return numDepartamentos;
+  }
+
+
   public static double adicionalTecnico(String nivelTecnico)
   {
     double adicional = 0.0;
