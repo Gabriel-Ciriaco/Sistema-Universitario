@@ -9,29 +9,21 @@ public class Controlador {
 
     private Universidade universidade = new Universidade("FCT - Unesp", ConstantesSistema.getNumDepartamentos());
 
-    public void criarDepartamento(String codigo, String nome, int numFuncionarios)
+    public boolean existeDepartamento(String codigo)
     {
-        if(universidade.existeDepartamento(codigo))
+        return universidade.existeDepartamento(codigo);
+    }
+
+    public boolean criarDepartamento(String codigo, String nome, int numFuncionarios)
+    {
+        if (universidade.existeDepartamento(codigo))
         {
-            System.out.println("Esse departamento ja existe!");
-            return;
-
-        }else{
-
-            Departamento novoDepartamento = new Departamento(codigo, nome, numFuncionarios);
-
-            if(universidade.addDepartamento(novoDepartamento))
-            {
-                System.out.println("Departamento criado com sucesso!");
-                return;
-        
-            }else{
-
-                System.out.println("Nao foi possivel criar o departamento!");
-                return;
-            }
+            return false;
         }
-
+        else
+        {
+            return universidade.addDepartamento(codigo, nome, numFuncionarios);
+        }
     }
 
     public void criarTecnico(String codigo, String nome, double salario, String nivel, String funcao, String codigoDepartamento)

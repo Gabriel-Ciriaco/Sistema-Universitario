@@ -41,13 +41,13 @@ public class Universidade {
     return null;
   }
 
-  public boolean addDepartamento(Departamento departamento)
+  public boolean addDepartamento(String codigo, String nome, int numFuncionarios)
   {
     for (int i = 0; i < this.departamentos.length; i++)
     {
       if (this.departamentos[i] == null)
       {
-        this.departamentos[i] = departamento;
+        this.departamentos[i] = new Departamento(codigo, nome, numFuncionarios);
 
         return true;
       }
