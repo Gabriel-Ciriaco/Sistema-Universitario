@@ -24,7 +24,19 @@ public class Efetivo extends Docente {
 
     public double calcularSalario()
     {
-      return getSalario() + (getSalario() * ConstantesSistema.adicionalEfetivo(getNivel()));
+        switch (this.getNivel()) {
+            case "D1":
+            return getSalario() * (1 + ConstantesSistema.D1);
+
+            case "D2":
+            return getSalario() * (1 + ConstantesSistema.D2);
+
+            case "D3":
+            return getSalario() + (1 + ConstantesSistema.D3);
+
+            default:
+            return getSalario();
+        }
     }
 
 }

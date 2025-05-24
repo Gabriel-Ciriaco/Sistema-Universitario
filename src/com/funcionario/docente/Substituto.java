@@ -19,12 +19,21 @@ public class Substituto extends Docente {
 
     public void setCargaHoraria(int cargaHoraria) 
     {
-        this.cargaHoraria = cargaHoraria;
+      this.cargaHoraria = cargaHoraria;
     }
 
     public double calcularSalario()
     {
-      return getSalario() + (getSalario() * ConstantesSistema.adicionalSubstituto(getNivel()));
+      switch (this.getNivel()) {
+        case "S1":
+        return this.getSalario() * (1 + ConstantesSistema.S1);
+
+        case "S2":
+        return this.getSalario() * (1 + ConstantesSistema.S2);
+
+        default:
+        return this.getSalario();
+      }
     }
 
 }

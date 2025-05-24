@@ -7,7 +7,7 @@ import com.ConstantesSistema;
 
 public class Controlador {
 
-    private Universidade universidade = new Universidade("FCT - Unesp", ConstantesSistema.getNumDepartamentos());
+    private Universidade universidade = new Universidade("FCT - Unesp", ConstantesSistema.numDepartamentos);
 
     public boolean existeDepartamento(String codigo)
     {

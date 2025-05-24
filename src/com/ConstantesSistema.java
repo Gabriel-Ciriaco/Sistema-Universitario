@@ -2,69 +2,16 @@ package com;
 
 public abstract class ConstantesSistema {
 
-  public static int getNumDepartamentos()
-  {
-    int numDepartamentos = 8;
-    
-    return numDepartamentos;
-  }
+  public final static int numDepartamentos = 8;
 
+  public final static double T1 = 0.1;
+  public final static double T2  = 0.2;
 
-  public static double adicionalTecnico(String nivelTecnico)
-  {
-    double adicional = 0.0;
+  public final static double D1  = 0.05;
+  public final static double D2  = 0.1;
+  public final static double D3 = 0.2;
 
-    switch (nivelTecnico)
-    {
-      case "T1":
-        adicional = 0.1;
-      break;
+  public final static double S1  = 0.05;
+  public final static double S2  = 0.1;
 
-      case "T2":
-        adicional = 0.2;
-      break;
-    }
-
-    return adicional;
-  }
-
-  public static double adicionalEfetivo(String nivelEfetivo)
-  {
-    double adicional = 0.0;
-
-    switch (nivelEfetivo)
-    {
-      case "D1":
-        adicional = 0.05;
-      break;
-
-      case "D2":
-        adicional = 0.1;
-      break;
-
-      case "D3":
-        adicional = 0.2;
-      break;
-    }
-
-    return adicional;
-  }
-
-  public static double adicionalSubstituto(String nivelSubstituto)
-  {
-    double adicional = 0.0;
-
-    switch (nivelSubstituto)
-    {
-      case "S1":
-        adicional = 0.05;
-      break;
-
-      case "S2":
-        adicional = 0.1;
-      break;
-    }
-
-    return adicional;
-  }
 }

@@ -25,6 +25,15 @@ public class Tecnico extends Funcionario {
 
   public double calcularSalario()
   {
-    return this.getSalario() * ( 1 + ConstantesSistema.adicionalTecnico(this.getNivel()));
+    switch (this.getNivel()) {
+      case "T1":
+      return this.getSalario() * (1 + ConstantesSistema.T1);
+
+      case "T2":
+      return this.getSalario() * (1 + ConstantesSistema.T2);
+
+      default:
+      return this.getSalario();
+    }
   }
 }
