@@ -1,6 +1,7 @@
 package com.departamento;
 
 import com.funcionario.Funcionario;
+import com.funcionario.Tecnico;
 
 
 public class Departamento {
@@ -41,13 +42,13 @@ public class Departamento {
     this.nome = nome;
   }
 
-  public boolean addFuncionario(Funcionario funcionario)
+  public boolean addTecnico(String codigo, String nome, double salario, String nivel, String funcao)
   {
     for (int i = 0; i < this.funcionarios.length; i++)
     {
       if (this.funcionarios[i] == null)
       {
-        this.funcionarios[i] = funcionario;
+        this.funcionarios[i] = new Tecnico(codigo, nome, salario, nivel, funcao);
 
         return true;
       }

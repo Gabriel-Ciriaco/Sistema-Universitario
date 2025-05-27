@@ -16,7 +16,7 @@ public class Controlador {
 
     public boolean criarDepartamento(String codigo, String nome, int numFuncionarios)
     {
-        if (universidade.existeDepartamento(codigo))
+        if (this.existeDepartamento(codigo))
         {
             return false;
         }
@@ -26,30 +26,22 @@ public class Controlador {
         }
     }
 
-    public void criarTecnico(String codigo, String nome, double salario, String nivel, String funcao, String codigoDepartamento)
+    public boolean criarTecnico(String codigo, String nome, double salario, String nivel, String funcao, String codigoDepartamento)
     {
-       Departamento departamento = universidade.getDepartamentoPorCodigo(codigoDepartamento);
+      
+      Departamento departamento = universidade.getDepartamentoPorCodigo(codigoDepartamento);
 
-       if(departamento != null)
-       {
-           Tecnico novoTecnico = new Tecnico(codigoDepartamento, nome, salario, nivel, funcao);
-           
-           if(departamento.addFuncionario(novoTecnico))
-           {
-                System.out.println("Tecnico adicionado com sucesso!");
-                return;
-           
-            }else{
+      if(departamento == null)
+      {
 
-                System.out.println("Nao foi possivel adicionar o tecnico!");
-                return;
-           }
-            
-       }else{
+        return false;
 
-            System.out.println("Departamento nao encontrado!");
-            return;
-       }
+      }else{
+
+        return departamento.addTecnico(codigo, nome, salario, nivel, funcao);
+
+      }
+  
     }
 
     public void criarEfetivo(String codigo, String nome, double salario, String nivel, String titulacao, String area, String codigoDepartamento)

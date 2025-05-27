@@ -25,4 +25,20 @@ public class Interface {
             }
         }
     }
+
+    public void criarTecnico(String codigo, String nome, double salario, String nivel, String funcao, String codigoDepartamento)
+    {
+
+      if(this.controladorSistema.criarTecnico(codigo, nome, salario, nivel, funcao, codigoDepartamento))
+      {
+
+        System.out.println("Funcionario tecnico criado com sucesso!");
+      
+      }else{
+
+        System.out.println("Nao foi possivel criar o funcionario tecnico!");
+
+      }
+      
+    }
 }
