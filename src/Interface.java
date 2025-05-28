@@ -1,5 +1,3 @@
-
-
 public class Interface {
 
     private Controlador controladorSistema;
@@ -41,4 +39,37 @@ public class Interface {
       }
       
     }
+
+    public void criarEfetivo(String codigo, String nome, double salario, String nivel, String titulacao, String area, String codigoDepartamento)
+    {
+
+      if(this.controladorSistema.criarEfetivo(codigo, nome, salario, nivel, titulacao, area, codigoDepartamento))
+      {
+
+        System.out.println("Docente efetivo criado com sucesso!");
+
+      }else{
+
+        System.out.println("Nao foi possivel criar o docente efetivo!");
+      }
+
+    }
+
+    public void criarSubstituto(String codigo, String nome, double salario, String nivel, String titulacao, int cargaHoraria, String codigoDepartamento)
+    {
+      
+      if(this.controladorSistema.criarSubstituto(codigo, nome, salario, nivel, titulacao, cargaHoraria, codigoDepartamento))
+      {
+       
+        System.out.println("Docente substituto criado com sucesso!");
+
+      }else{
+
+        System.out.println("Nao foi possivel criar o docente substituto!");
+
+      }
+
+    }
+
+
 }

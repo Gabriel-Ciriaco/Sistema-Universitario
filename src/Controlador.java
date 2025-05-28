@@ -1,7 +1,4 @@
 import com.departamento.Departamento;
-import com.funcionario.Tecnico;
-import com.funcionario.docente.Efetivo;
-import com.funcionario.docente.Substituto;
 import com.universidade.Universidade;
 import com.ConstantesSistema;
 
@@ -44,60 +41,36 @@ public class Controlador {
   
     }
 
-    public void criarEfetivo(String codigo, String nome, double salario, String nivel, String titulacao, String area, String codigoDepartamento)
+    public boolean criarEfetivo(String codigo, String nome, double salario, String nivel, String titulacao, String area, String codigoDepartamento)
     {
         Departamento departamento = universidade.getDepartamentoPorCodigo(codigoDepartamento);
 
-        if(departamento != null)
+        if(departamento == null)
         {
 
-            Efetivo novoEfetivo = new Efetivo(codigo, nome, salario, nivel, titulacao, area);
-
-            if(departamento.addFuncionario(novoEfetivo))
-            {
-
-                System.out.println("Docente efetivo adicionado com sucesso!");
-                return;
-            
-            }else{
-
-                System.out.println("Nao foi possivel adicionar o docente efetivo!");
-                return;
-
-            }
+            return false;
 
         }else{
 
-            System.out.println("Departamento nao encontrado!");
-            return;
+            return departamento.addEfetivo(codigo, nome, salario, nivel, titulacao, area);
+
         }
     }
 
-    public void criarSubstituto(String codigo, String nome, double salario, String nivel, String titulacao, int cargaHoraria, String codigoDepartamento)
+    public boolean criarSubstituto(String codigo, String nome, double salario, String nivel, String titulacao, int cargaHoraria, String codigoDepartamento)
     {
         Departamento departamento = universidade.getDepartamentoPorCodigo(codigoDepartamento);
 
-        if(departamento != null)
+        if(departamento == null)
         {
 
-            Substituto novSubstituto = new Substituto(codigo, nome, salario, nivel, titulacao, cargaHoraria);
-
-            if(departamento.addFuncionario(novSubstituto))
-            {
-                System.out.println("Docente substituto adicionado com sucesso!");
-                return;
-
-            }else{
-
-                System.out.println("Nao foi possivel adicionar o docente substituto!");
-                return;
-            }
-
+            return false;
+           
         }else{
 
-            System.out.println("Departamento nao encontrado!");
-            return;
+            return departamento.addSubstituto(codigoDepartamento, nome, salario, nivel, titulacao, cargaHoraria);
         }
+
     }
 
 }
