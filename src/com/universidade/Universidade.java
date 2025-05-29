@@ -1,6 +1,11 @@
 package com.universidade;
 
 import com.departamento.Departamento;
+import com.funcionario.Funcionario;
+import com.funcionario.docente.Substituto;
+
+import java.util.ArrayList;
+
 
 
 public class Universidade {
@@ -92,6 +97,101 @@ public class Universidade {
     return false;
 
   }
+
+  public ArrayList<Substituto> exibirDocentesSubstitutos()
+  {
+      ArrayList<Substituto> docentesSubstitutos = new ArrayList<>();
+
+      for(int i=0; i < departamentos.length; i++)
+      {
+
+        Departamento departamento = departamentos[i];
+
+        Funcionario funcionarios[] = departamento.getFuncionarios();
+
+        if(funcionarios != null)
+        {
+
+          for(int j=0; j < funcionarios.length; j++)
+          {
+
+            if(funcionarios[j] instanceof Substituto)
+            {
+
+              docentesSubstitutos.add((Substituto) funcionarios[j]);
+            
+            }
+
+          }
+
+        }
+
+      }
+
+      return docentesSubstitutos;
+  }
+
+  public Funcionario buscarFuncionarioPorCodigo(String codigo)
+  {
+
+    for(int i=0; i < departamentos.length; i++)
+    {
+
+      Funcionario funcionarios[] = departamentos[i].getFuncionarios();
+
+      if(funcionarios != null)
+      {
+
+        for(int j=0; j < funcionarios.length; j++)
+        {
+
+          if(funcionarios[j].getCodigo().equals(codigo))
+          {
+
+            return funcionarios[j];
+
+          }
+
+        }
+
+      }
+
+    }
+
+    return null;
+
+  }
+
+  public Funcionario buscarFuncionarioPeloNome(String nome)
+  {
+
+    for(int i=0; i < departamentos.length; i++)
+    {
+
+      Funcionario funcionarios[] = departamentos[i].getFuncionarios();
+
+      if(funcionarios != null)
+      {
+
+         for(int j=0; j < funcionarios.length; j++)
+        {
+
+          if(funcionarios[j].getNome().equals(nome))
+          {
+
+            return funcionarios[j];
+          }
+
+        }
+
+      }
+     
+    }
+
+    return null;
+    
+  }
+  
 
 
 }

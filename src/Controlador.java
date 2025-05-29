@@ -1,5 +1,10 @@
 import com.departamento.Departamento;
+import com.funcionario.Funcionario;
+import com.funcionario.docente.Substituto;
 import com.universidade.Universidade;
+
+import java.util.ArrayList;
+
 import com.ConstantesSistema;
 
 public class Controlador {
@@ -71,6 +76,26 @@ public class Controlador {
             return departamento.addSubstituto(codigoDepartamento, nome, salario, nivel, titulacao, cargaHoraria);
         }
 
+    }
+
+    public ArrayList<Substituto> exibirDocentesSubstitutos()
+    {
+        return this.universidade.exibirDocentesSubstitutos();
+    }
+
+    public Departamento exibirInformacoesDepartamento(String codigo)
+    {
+        return this.universidade.getDepartamentoPorCodigo(codigo);
+    }
+
+    public Funcionario buscarFuncionarioPorCodigo(String codigo)
+    {
+        return this.universidade.buscarFuncionarioPorCodigo(codigo);
+    }
+
+    public Funcionario buscarFuncionarioPeloNome(String nome)
+    {
+        return this.universidade.buscarFuncionarioPeloNome(nome);
     }
 
 }
