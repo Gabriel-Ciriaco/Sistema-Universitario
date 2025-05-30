@@ -9,12 +9,17 @@ import com.funcionario.docente.Substituto;
 public class Departamento {
   private String codigo;
   private String nome;
+
   private Funcionario[] funcionarios;
+  private int contadorFuncionarios;
+  private int maxFuncionarios;
 
   public Departamento(String codigo, String nome, int numFuncionarios)
   {
     this.codigo = codigo;
     this.nome = nome;
+    
+    this.maxFuncionarios = numFuncionarios;
     this.funcionarios = new Funcionario[numFuncionarios];
   }
 
@@ -46,14 +51,11 @@ public class Departamento {
 
   public boolean addTecnico(String codigo, String nome, double salario, String nivel, String funcao)
   {
-    for (int i = 0; i < this.funcionarios.length; i++)
+    if (this.contadorFuncionarios < this.maxFuncionarios)
     {
-      if (this.funcionarios[i] == null)
-      {
-        this.funcionarios[i] = new Tecnico(codigo, nome, salario, nivel, funcao);
+      this.funcionarios[this.contadorFuncionarios++] = new Tecnico(codigo, nome, salario, nivel, funcao);
 
-        return true;
-      }
+      return true;
     }
 
     return false;
@@ -61,14 +63,11 @@ public class Departamento {
 
   public boolean addEfetivo(String codigo, String nome, double salario, String nivel, String titulacao, String area)
   {
-    for (int i = 0; i < this.funcionarios.length; i++)
+    if (this.contadorFuncionarios < this.maxFuncionarios)
     {
-      if (this.funcionarios[i] == null)
-      {
-        this.funcionarios[i] = new Efetivo(codigo, nome, salario, nivel, titulacao, area);
+      this.funcionarios[this.contadorFuncionarios++] = new Efetivo(codigo, nome, salario, nivel, titulacao, area);
 
-        return true;
-      }
+      return true;
     }
 
     return false;
@@ -76,18 +75,11 @@ public class Departamento {
 
   public boolean addSubstituto(String codigo, String nome, double salario, String nivel, String titulacao, int cargaHoraria)
   {
-
-    for(int i=0; i < this.funcionarios.length; i++)
+    if (this.contadorFuncionarios < this.maxFuncionarios)
     {
+      this.funcionarios[this.contadorFuncionarios++] = new Substituto(codigo, nome, salario, nivel, titulacao, cargaHoraria);
 
-      if(this.funcionarios[i] == null)
-      {
-
-        this.funcionarios[i] = new Substituto(codigo, nome, salario, nivel, titulacao, cargaHoraria);
-        return true;
-      
-      }
-      
+      return true;
     }
 
     return false;
@@ -97,19 +89,20 @@ public class Departamento {
 
   public boolean removeFuncionario(String codigoFuncionario)
   {
-    for (int i = 0; i < this.funcionarios.length; i++)
+    for (int i = 0; i < this.contadorFuncionarios; i++)
     {
-      if (this.funcionarios[i] != null &&
-          this.funcionarios[i].getCodigo().equals(codigoFuncionario))
+      if (this.funcionarios[i].getCodigo().equals(codigoFuncionario))
       {
         int j;
 
-        for (j = i; j + 1 < this.funcionarios.length; j++)
+        for (j = i; j + 1 < this.contadorFuncionarios; j++)
         {
           this.funcionarios[j] = this.funcionarios[j+1];
         }
 
         this.funcionarios[j] = null;
+
+        this.contadorFuncionarios--;
 
         return true;
       }
@@ -117,9 +110,5 @@ public class Departamento {
 
     return false;
   }
-
-  
-
-
 
 }
