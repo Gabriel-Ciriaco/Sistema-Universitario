@@ -11,10 +11,14 @@ import java.util.ArrayList;
 public class Universidade {
   private String nome;
   private Departamento[] departamentos;
+  private int contadorDepartamentos;
+  private int maxDepartamentos;
 
   public Universidade(String nome, int numDepartamentos)
   {
     this.nome = nome;
+
+    this.maxDepartamentos = numDepartamentos;
     this.departamentos = new Departamento[numDepartamentos];
   }
 
@@ -48,14 +52,10 @@ public class Universidade {
 
   public boolean addDepartamento(String codigo, String nome, int numFuncionarios)
   {
-    for (int i = 0; i < this.departamentos.length; i++)
+    if(this.contadorDepartamentos < this.maxDepartamentos)
     {
-      if (this.departamentos[i] == null)
-      {
-        this.departamentos[i] = new Departamento(codigo, nome, numFuncionarios);
-
-        return true;
-      }
+      this.departamentos[this.contadorDepartamentos++] = new Departamento(codigo, nome, numFuncionarios);
+      return true;
     }
 
     return false;
@@ -63,19 +63,20 @@ public class Universidade {
 
   public boolean removeDepartamento(String codigoDepartamento)
   {
-    for (int i = 0; i < this.departamentos.length; i++)
+    for (int i = 0; i < this.contadorDepartamentos; i++)
     {
-      if (this.departamentos[i] != null &&
-          this.departamentos[i].getCodigo().equals(codigoDepartamento))
+      if (this.departamentos[i].getCodigo().equals(codigoDepartamento))
         {
           int j;
 
-          for (j = i; j + 1 < this.departamentos.length; j++)
+          for (j = i; j + 1 < this.contadorDepartamentos; j++)
           {
             this.departamentos[j] = this.departamentos[j + 1];
           }
 
           this.departamentos[j] = null;
+
+          this.contadorDepartamentos--;
 
           return true;
         }
@@ -107,7 +108,7 @@ public class Universidade {
 
         Departamento departamento = departamentos[i];
 
-        Funcionario funcionarios[] = departamento.getFuncionarios();
+        Funcionario[] funcionarios = departamento.getFuncionarios();
 
         if(funcionarios != null)
         {
