@@ -19,6 +19,7 @@ public class Departamento {
     this.codigo = codigo;
     this.nome = nome;
     
+    this.contadorFuncionarios = 0;
     this.maxFuncionarios = numFuncionarios;
     this.funcionarios = new Funcionario[numFuncionarios];
   }

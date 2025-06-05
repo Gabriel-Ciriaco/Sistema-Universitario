@@ -1,5 +1,8 @@
 import com.departamento.Departamento;
 import com.funcionario.Funcionario;
+import com.funcionario.Tecnico;
+import com.funcionario.docente.Docente;
+import com.funcionario.docente.Efetivo;
 import com.funcionario.docente.Substituto;
 import com.universidade.Universidade;
 
@@ -76,6 +79,26 @@ public class Controlador {
             return departamento.addSubstituto(codigoDepartamento, nome, salario, nivel, titulacao, cargaHoraria);
         }
 
+    }
+
+    public ArrayList<Funcionario> exibirFuncionarios()
+    {
+        return this.universidade.exibirFuncionarios();
+    }    
+
+    public ArrayList<Tecnico> exibirTecnicos()
+    {
+        return this.universidade.exibirTecnicos();
+    }
+
+    public ArrayList<Docente> exibirDocentes()
+    {
+        return this.universidade.exibirDocentes();
+    }
+
+    public ArrayList<Efetivo> exibirDocentesEfetivos()
+    {
+        return this.universidade.exibirDocentesEfetivos();
     }
 
     public ArrayList<Substituto> exibirDocentesSubstitutos()

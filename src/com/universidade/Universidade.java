@@ -1,7 +1,11 @@
 package com.universidade;
 
 import com.departamento.Departamento;
+
 import com.funcionario.Funcionario;
+import com.funcionario.Tecnico;
+import com.funcionario.docente.Docente;
+import com.funcionario.docente.Efetivo;
 import com.funcionario.docente.Substituto;
 
 import java.util.ArrayList;
@@ -18,6 +22,7 @@ public class Universidade {
   {
     this.nome = nome;
 
+    this.contadorDepartamentos = 0;
     this.maxDepartamentos = numDepartamentos;
     this.departamentos = new Departamento[numDepartamentos];
   }
@@ -39,7 +44,7 @@ public class Universidade {
 
   public Departamento getDepartamentoPorCodigo(String codigo)
   {
-    for(int i=0; i<departamentos.length; i++)
+    for(int i=0; i<this.contadorDepartamentos; i++)
     {
       if(departamentos[i].getCodigo().equals(codigo))
       {
@@ -87,9 +92,9 @@ public class Universidade {
 
   public boolean existeDepartamento(String codigoDepartamento)
   {
-    for(int i = 0; i < this.departamentos.length; i++)
+    for(int i = 0; i < this.contadorDepartamentos; i++)
     {
-      if(this.departamentos[i] != null && this.departamentos[i].getCodigo().equals(codigoDepartamento))
+      if(this.departamentos[i].getCodigo().equals(codigoDepartamento))
       {
         return true;
       }
@@ -99,11 +104,89 @@ public class Universidade {
 
   }
 
+  public ArrayList<Funcionario> exibirFuncionarios()
+  {
+    ArrayList<Funcionario> todosFuncionarios = new ArrayList<Funcionario>();
+
+    for (int i = 0; i < this.contadorDepartamentos; i++)
+    {
+      Funcionario[] funcionarios = this.departamentos[i].getFuncionarios();
+
+      for (int j = 0; j < funcionarios.length; j++)
+      {
+        todosFuncionarios.add(funcionarios[i]);
+      }
+
+    }
+
+    return todosFuncionarios;
+  }
+
+  public ArrayList<Tecnico> exibirTecnicos()
+  {
+    ArrayList<Tecnico> tecnicos = new ArrayList<Tecnico>();
+
+    for (int i = 0; i < this.contadorDepartamentos; i++)
+    {
+      Funcionario[] funcionarios = this.departamentos[i].getFuncionarios();
+
+      for (int j = 0; j < funcionarios.length; j++)
+      {
+        if (funcionarios[j] instanceof Tecnico)
+        {
+          tecnicos.add((Tecnico) funcionarios[j]);
+        }
+      }
+    }
+
+    return tecnicos;
+  }
+
+  public ArrayList<Docente> exibirDocentes()
+  {
+    ArrayList<Docente> docentes = new ArrayList<Docente>();
+
+    for (int i = 0; i < this.contadorDepartamentos; i++)
+    {
+      Funcionario[] funcionarios = this.departamentos[i].getFuncionarios();
+
+      for (int j = 0; j < funcionarios.length; j++)
+      {
+        if (funcionarios[j] instanceof Docente)
+        {
+          docentes.add((Docente) funcionarios[j]);
+        }
+      }
+    }
+
+    return docentes;
+  }
+
+  public ArrayList<Efetivo> exibirDocentesEfetivos()
+  {
+    ArrayList<Efetivo> efetivos = new ArrayList<Efetivo>();
+
+    for (int i = 0; i < this.contadorDepartamentos; i++)
+    {
+      Funcionario[] funcionarios = this.departamentos[i].getFuncionarios();
+
+      for (int j = 0; j < funcionarios.length; j++)
+      {
+        if (funcionarios[j] instanceof Efetivo)
+        {
+          efetivos.add((Efetivo) funcionarios[j]);
+        }
+      }
+    }
+
+    return efetivos;
+  }
+
   public ArrayList<Substituto> exibirDocentesSubstitutos()
   {
       ArrayList<Substituto> docentesSubstitutos = new ArrayList<>();
 
-      for(int i=0; i < departamentos.length; i++)
+      for(int i=0; i < contadorDepartamentos; i++)
       {
 
         Departamento departamento = departamentos[i];
@@ -135,7 +218,7 @@ public class Universidade {
   public Funcionario buscarFuncionarioPorCodigo(String codigo)
   {
 
-    for(int i=0; i < departamentos.length; i++)
+    for(int i=0; i < contadorDepartamentos; i++)
     {
 
       Funcionario funcionarios[] = departamentos[i].getFuncionarios();
@@ -166,7 +249,7 @@ public class Universidade {
   public Funcionario buscarFuncionarioPeloNome(String nome)
   {
 
-    for(int i=0; i < departamentos.length; i++)
+    for(int i=0; i < contadorDepartamentos; i++)
     {
 
       Funcionario funcionarios[] = departamentos[i].getFuncionarios();
@@ -192,7 +275,5 @@ public class Universidade {
     return null;
     
   }
-  
-
 
 }
