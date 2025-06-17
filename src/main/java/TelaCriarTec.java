@@ -49,11 +49,11 @@ public class TelaCriarTec extends javax.swing.JFrame {
         campoCodigoTecnico = new javax.swing.JTextField();
         campoSalarioTecnico = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        campoNivelTecnico = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         campoFunTecnico = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         campoCodigoDepTecnico = new javax.swing.JTextField();
+        campoNivelTecnico = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -194,13 +194,6 @@ public class TelaCriarTec extends javax.swing.JFrame {
         jLabel2.setText("Nível do técnico:");
         jPanel9.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, -1, -1));
 
-        campoNivelTecnico.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoNivelTecnicoActionPerformed(evt);
-            }
-        });
-        jPanel9.add(campoNivelTecnico, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 480, 760, -1));
-
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(30, 58, 138));
         jLabel3.setText("Função do técnico:");
@@ -224,6 +217,14 @@ public class TelaCriarTec extends javax.swing.JFrame {
             }
         });
         jPanel9.add(campoCodigoDepTecnico, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 600, 760, -1));
+
+        campoNivelTecnico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "T1", "T2" }));
+        campoNivelTecnico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoNivelTecnicoActionPerformed(evt);
+            }
+        });
+        jPanel9.add(campoNivelTecnico, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 480, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -260,7 +261,7 @@ public class TelaCriarTec extends javax.swing.JFrame {
         String nomeFuncionario = this.campoNomeTecnico.getText();
         String codigoFuncionario = this.campoCodigoTecnico.getText();
         double salario = Double.parseDouble(this.campoSalarioTecnico.getText());
-        String nivelTecnico = this.campoNivelTecnico.getText();
+        String nivelTecnico = this.campoNivelTecnico.getSelectedItem().toString();
         String funcaoTecnico = this.campoFunTecnico.getText();
         String codigoDep = this.campoCodigoDepTecnico.getText();
         
@@ -272,7 +273,6 @@ public class TelaCriarTec extends javax.swing.JFrame {
             this.campoCodigoDepTecnico.setText("");
             this.campoCodigoTecnico.setText("");
             this.campoFunTecnico.setText("");
-            this.campoNivelTecnico.setText("");
             this.campoSalarioTecnico.setText("");
       
         }else{
@@ -282,7 +282,6 @@ public class TelaCriarTec extends javax.swing.JFrame {
             this.campoCodigoDepTecnico.setText("");
             this.campoCodigoTecnico.setText("");
             this.campoFunTecnico.setText("");
-            this.campoNivelTecnico.setText("");
             this.campoSalarioTecnico.setText("");
         }
     }//GEN-LAST:event_btnCriarTecnicoActionPerformed
@@ -291,10 +290,6 @@ public class TelaCriarTec extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoSalarioTecnicoActionPerformed
 
-    private void campoNivelTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNivelTecnicoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoNivelTecnicoActionPerformed
-
     private void campoFunTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoFunTecnicoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoFunTecnicoActionPerformed
@@ -302,6 +297,10 @@ public class TelaCriarTec extends javax.swing.JFrame {
     private void campoCodigoDepTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCodigoDepTecnicoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoCodigoDepTecnicoActionPerformed
+
+    private void campoNivelTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNivelTecnicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoNivelTecnicoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -349,7 +348,7 @@ public class TelaCriarTec extends javax.swing.JFrame {
     private javax.swing.JTextField campoCodigoDepTecnico;
     private javax.swing.JTextField campoCodigoTecnico;
     private javax.swing.JTextField campoFunTecnico;
-    private javax.swing.JTextField campoNivelTecnico;
+    private javax.swing.JComboBox<String> campoNivelTecnico;
     private javax.swing.JTextField campoNomeTecnico;
     private javax.swing.JTextField campoSalarioTecnico;
     private javax.swing.JLabel jLabel1;

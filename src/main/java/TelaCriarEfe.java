@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -12,7 +15,11 @@ public class TelaCriarEfe extends javax.swing.JFrame {
     /**
      * Creates new form TelaCriarEfe
      */
-    public TelaCriarEfe() {
+    private Controlador controladorSistema;
+
+    public TelaCriarEfe(Controlador controladorSistema) {
+        this.setTitle("Criar Efetivo");
+        this.controladorSistema = controladorSistema;
         initComponents();
     }
 
@@ -45,11 +52,11 @@ public class TelaCriarEfe extends javax.swing.JFrame {
         campoAreaDocenteEfetivo = new javax.swing.JTextField();
         campoCodigoDepDocenteEfetivo = new javax.swing.JTextField();
         campoTitulacaoDocenteEfetivo = new javax.swing.JTextField();
-        campoNivelDocenteEfetivo = new javax.swing.JTextField();
-        campoSalarioDocenteEfetivo = new javax.swing.JTextField();
         campoCodigoDocenteEfetivo = new javax.swing.JTextField();
         campoNomeDocenteEfetivo = new javax.swing.JTextField();
         btnCriarEfetivo = new javax.swing.JButton();
+        campoNivelDocenteEfetivo = new javax.swing.JComboBox<>();
+        campoSalarioDocenteEfetivo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -186,22 +193,20 @@ public class TelaCriarEfe extends javax.swing.JFrame {
         jLabel6.setText("Área do docente:");
         jPanel9.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 540, -1, -1));
         jPanel9.add(campoAreaDocenteEfetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 570, 780, -1));
+
+        campoCodigoDepDocenteEfetivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoCodigoDepDocenteEfetivoActionPerformed(evt);
+            }
+        });
         jPanel9.add(campoCodigoDepDocenteEfetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 630, 780, -1));
+
+        campoTitulacaoDocenteEfetivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoTitulacaoDocenteEfetivoActionPerformed(evt);
+            }
+        });
         jPanel9.add(campoTitulacaoDocenteEfetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, 780, -1));
-
-        campoNivelDocenteEfetivo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoNivelDocenteEfetivoActionPerformed(evt);
-            }
-        });
-        jPanel9.add(campoNivelDocenteEfetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 780, -1));
-
-        campoSalarioDocenteEfetivo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoSalarioDocenteEfetivoActionPerformed(evt);
-            }
-        });
-        jPanel9.add(campoSalarioDocenteEfetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 780, -1));
         jPanel9.add(campoCodigoDocenteEfetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 780, -1));
         jPanel9.add(campoNomeDocenteEfetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 780, -1));
 
@@ -209,7 +214,27 @@ public class TelaCriarEfe extends javax.swing.JFrame {
         btnCriarEfetivo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCriarEfetivo.setForeground(new java.awt.Color(255, 255, 255));
         btnCriarEfetivo.setText("Criar efetivo");
+        btnCriarEfetivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCriarEfetivoActionPerformed(evt);
+            }
+        });
         jPanel9.add(btnCriarEfetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 660, -1, -1));
+
+        campoNivelDocenteEfetivo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "D1", "D2", "D3" }));
+        campoNivelDocenteEfetivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoNivelDocenteEfetivoActionPerformed(evt);
+            }
+        });
+        jPanel9.add(campoNivelDocenteEfetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, -1, -1));
+
+        campoSalarioDocenteEfetivo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoSalarioDocenteEfetivoActionPerformed(evt);
+            }
+        });
+        jPanel9.add(campoSalarioDocenteEfetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 780, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -232,12 +257,59 @@ public class TelaCriarEfe extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarPaginaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarPaginaInicialActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TelaPrincipal(controladorSistema).setVisible(true);
+            }
+        });
     }//GEN-LAST:event_btnVoltarPaginaInicialActionPerformed
+
+    private void campoTitulacaoDocenteEfetivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTitulacaoDocenteEfetivoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoTitulacaoDocenteEfetivoActionPerformed
+
+    private void btnCriarEfetivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarEfetivoActionPerformed
+        String nomeEfetivo = this.campoNomeDocenteEfetivo.getText();
+        String codigoEfetivo = this.campoCodigoDepDocenteEfetivo.getText();
+
+        try
+        {
+            double salarioEfetivo = Double.parseDouble(this.campoSalarioDocenteEfetivo.getText());
+        
+            String nivelDocente = this.campoNivelDocenteEfetivo.getSelectedItem().toString();
+            String titulacaoDocente = this.campoTitulacaoDocenteEfetivo.getText();
+            String areaDocente = this.campoAreaDocenteEfetivo.getText();
+
+            if(this.controladorSistema.criarEfetivo(codigoEfetivo, nomeEfetivo, salarioEfetivo, nivelDocente, titulacaoDocente, areaDocente, codigoEfetivo))
+            {
+                JOptionPane.showMessageDialog(this, "Funcionário Efetivo criado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            }else{
+
+                JOptionPane.showMessageDialog(this, "Não foi possível criar o Funcionário Efetivo!", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "Salário deve ser um número!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        this.campoAreaDocenteEfetivo.setText("");
+        this.campoCodigoDepDocenteEfetivo.setText("");
+        this.campoCodigoDocenteEfetivo.setText("");
+        this.campoTitulacaoDocenteEfetivo.setText("");
+        this.campoNomeDocenteEfetivo.setText("");
+        this.campoSalarioDocenteEfetivo.setText("");
+    }//GEN-LAST:event_btnCriarEfetivoActionPerformed
 
     private void campoNivelDocenteEfetivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNivelDocenteEfetivoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoNivelDocenteEfetivoActionPerformed
+
+    private void campoCodigoDepDocenteEfetivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCodigoDepDocenteEfetivoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoCodigoDepDocenteEfetivoActionPerformed
 
     private void campoSalarioDocenteEfetivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSalarioDocenteEfetivoActionPerformed
         // TODO add your handling code here:
@@ -272,8 +344,13 @@ public class TelaCriarEfe extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run(Controlador controladorSistema) {
+                new TelaCriarEfe(controladorSistema).setVisible(true);
+            }
+            
+            @Override
             public void run() {
-                new TelaCriarEfe().setVisible(true);
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
             }
         });
     }
@@ -284,7 +361,7 @@ public class TelaCriarEfe extends javax.swing.JFrame {
     private javax.swing.JTextField campoAreaDocenteEfetivo;
     private javax.swing.JTextField campoCodigoDepDocenteEfetivo;
     private javax.swing.JTextField campoCodigoDocenteEfetivo;
-    private javax.swing.JTextField campoNivelDocenteEfetivo;
+    private javax.swing.JComboBox<String> campoNivelDocenteEfetivo;
     private javax.swing.JTextField campoNomeDocenteEfetivo;
     private javax.swing.JTextField campoSalarioDocenteEfetivo;
     private javax.swing.JTextField campoTitulacaoDocenteEfetivo;

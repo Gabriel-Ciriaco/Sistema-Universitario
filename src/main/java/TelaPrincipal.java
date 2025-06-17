@@ -704,10 +704,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCriarSubActionPerformed
 
     private void btnCriarEfeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarEfeActionPerformed
-        
+        this.dispose();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCriarEfe().setVisible(true);
+                new TelaCriarEfe(controladorSistema).setVisible(true);
             }
         });
     }//GEN-LAST:event_btnCriarEfeActionPerformed
