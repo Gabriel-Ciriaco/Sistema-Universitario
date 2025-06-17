@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-
 import com.departamento.Departamento;
 import com.funcionario.Funcionario;
 import com.funcionario.Tecnico;
