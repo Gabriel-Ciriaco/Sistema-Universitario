@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -12,7 +15,10 @@ public class TelaCriarTec extends javax.swing.JFrame {
     /**
      * Creates new form TelaCriarTec
      */
-    public TelaCriarTec() {
+    private Controlador controladorSistema;
+    
+    public TelaCriarTec(Controlador controladorSistema) {
+        this.controladorSistema = controladorSistema;
         initComponents();
     }
 
@@ -240,11 +246,45 @@ public class TelaCriarTec extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVoltarPaginaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarPaginaInicialActionPerformed
-        // TODO add your handling code here:
+        
+        this.dispose();
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TelaPrincipal(controladorSistema).setVisible(true);
+            }
+        });
     }//GEN-LAST:event_btnVoltarPaginaInicialActionPerformed
 
     private void btnCriarTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarTecnicoActionPerformed
-        // TODO add your handling code here:
+        
+        String nomeFuncionario = this.campoNomeTecnico.getText();
+        String codigoFuncionario = this.campoCodigoTecnico.getText();
+        double salario = Double.parseDouble(this.campoSalarioTecnico.getText());
+        String nivelTecnico = this.campoNivelTecnico.getText();
+        String funcaoTecnico = this.campoFunTecnico.getText();
+        String codigoDep = this.campoCodigoDepTecnico.getText();
+        
+        if(this.controladorSistema.criarTecnico(codigoFuncionario, nomeFuncionario, salario, nivelTecnico, funcaoTecnico, codigoDep))
+        {
+
+            JOptionPane.showMessageDialog(this, "Funcionário técnico criado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            this.campoNomeTecnico.setText("");
+            this.campoCodigoDepTecnico.setText("");
+            this.campoCodigoTecnico.setText("");
+            this.campoFunTecnico.setText("");
+            this.campoNivelTecnico.setText("");
+            this.campoSalarioTecnico.setText("");
+      
+        }else{
+
+            JOptionPane.showMessageDialog(this, "Não foi possível criar o funcionário técnico!", "Erro", JOptionPane.ERROR_MESSAGE);
+            this.campoNomeTecnico.setText("");
+            this.campoCodigoDepTecnico.setText("");
+            this.campoCodigoTecnico.setText("");
+            this.campoFunTecnico.setText("");
+            this.campoNivelTecnico.setText("");
+            this.campoSalarioTecnico.setText("");
+        }
     }//GEN-LAST:event_btnCriarTecnicoActionPerformed
 
     private void campoSalarioTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSalarioTecnicoActionPerformed
@@ -292,8 +332,13 @@ public class TelaCriarTec extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run(Controlador constroladorSistema) {
+                new TelaCriarTec(constroladorSistema).setVisible(true);
+            }
+
+            @Override
             public void run() {
-                new TelaCriarTec().setVisible(true);
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
             }
         });
     }
