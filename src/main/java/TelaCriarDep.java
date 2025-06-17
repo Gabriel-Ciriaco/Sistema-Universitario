@@ -1,18 +1,18 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
 /**
  *
  * @author User
  */
-public class TelaCriarSubstituto extends javax.swing.JInternalFrame {
+public class TelaCriarDep extends javax.swing.JFrame {
 
     /**
-     * Creates new form TelaCriarSubstituto
+     * Creates new form TelaCriarDep
      */
-    public TelaCriarSubstituto() {
+    public TelaCriarDep() {
         initComponents();
     }
 
@@ -35,21 +35,16 @@ public class TelaCriarSubstituto extends javax.swing.JInternalFrame {
         jPanel15 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        campoNomeDepart = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        campoCodigoDep = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
+        campoQtdFunciDep = new javax.swing.JTextField();
         btnVoltarPaginaInicial = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        campoNomeDocSub = new javax.swing.JTextField();
-        campoCodigoDecSub = new javax.swing.JTextField();
-        campoSalarioDocSub = new javax.swing.JTextField();
-        campoNivelDocSub = new javax.swing.JTextField();
-        campoTitulacaoDocSub = new javax.swing.JTextField();
-        campoCargaHDocSub = new javax.swing.JTextField();
-        campoCodigoDepDocSub = new javax.swing.JTextField();
-        btnCriarSub = new javax.swing.JButton();
+        btnCriarDep = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel9.setBackground(new java.awt.Color(243, 244, 246));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -59,7 +54,7 @@ public class TelaCriarSubstituto extends javax.swing.JInternalFrame {
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logoUnespMenor.png"))); // NOI18N
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 52)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 58)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Sistema Universitário");
 
@@ -69,8 +64,8 @@ public class TelaCriarSubstituto extends javax.swing.JInternalFrame {
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addGap(15, 15, 15))
         );
@@ -86,7 +81,7 @@ public class TelaCriarSubstituto extends javax.swing.JInternalFrame {
                 .addGap(53, 53, 53))
         );
 
-        jPanel9.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 970, 140));
+        jPanel9.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 140));
 
         jPanel13.setBackground(new java.awt.Color(242, 236, 78));
 
@@ -94,19 +89,19 @@ public class TelaCriarSubstituto extends javax.swing.JInternalFrame {
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 1030, Short.MAX_VALUE)
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 10, Short.MAX_VALUE)
         );
 
-        jPanel9.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 960, 10));
+        jPanel9.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 140, 1030, 10));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(30, 58, 138));
-        jLabel15.setText("<html><center> <h1>Criar docente substituto</h1><p>Preencha os campos abaixo para criar um docente substituto</p> </center></html>");
-        jPanel9.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 760, 110));
+        jLabel15.setText("<html><center> <h1>Criar departamento</h1><p>Preencha os campos abaixo para criar um departamento</p> </center></html>");
+        jPanel9.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 760, 110));
 
         jPanel14.setLayout(new java.awt.CardLayout());
         jPanel9.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, -1, -1));
@@ -115,11 +110,11 @@ public class TelaCriarSubstituto extends javax.swing.JInternalFrame {
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
 
         jPanel9.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -128,29 +123,38 @@ public class TelaCriarSubstituto extends javax.swing.JInternalFrame {
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
 
         jPanel9.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(30, 58, 138));
-        jLabel1.setText("<html><p>Nome do docente:</p></html>");
-        jPanel9.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, -1, -1));
+        jLabel1.setText("<html><p>Nome do departamento:</p></html>");
+        jPanel9.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, -1, -1));
+        jPanel9.add(campoNomeDepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 790, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(30, 58, 138));
-        jLabel4.setText("<html><p>Código do docente:</p></html>");
-        jPanel9.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 300, -1, -1));
+        jLabel4.setText("<html><p>Código do departamento:</p></html>");
+        jPanel9.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, -1, -1));
+        jPanel9.add(campoCodigoDep, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, 790, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(30, 58, 138));
-        jLabel5.setText("Salário do docente:");
-        jPanel9.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 360, -1, -1));
+        jLabel5.setText("Quantidade de funcionários:");
+        jPanel9.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, -1, -1));
+
+        campoQtdFunciDep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoQtdFunciDepActionPerformed(evt);
+            }
+        });
+        jPanel9.add(campoQtdFunciDep, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 550, 790, -1));
 
         btnVoltarPaginaInicial.setBackground(new java.awt.Color(30, 58, 138));
         btnVoltarPaginaInicial.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -161,45 +165,13 @@ public class TelaCriarSubstituto extends javax.swing.JInternalFrame {
                 btnVoltarPaginaInicialActionPerformed(evt);
             }
         });
-        jPanel9.add(btnVoltarPaginaInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 660, -1, -1));
+        jPanel9.add(btnVoltarPaginaInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 620, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(30, 58, 138));
-        jLabel2.setText("Nível do docente:");
-        jPanel9.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 420, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(30, 58, 138));
-        jLabel3.setText("Titulação do docente:");
-        jPanel9.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 480, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(30, 58, 138));
-        jLabel7.setText("Código do departamento:");
-        jPanel9.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 600, -1, -1));
-
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(30, 58, 138));
-        jLabel6.setText("Carga horária do docente:");
-        jPanel9.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 540, -1, -1));
-        jPanel9.add(campoNomeDocSub, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 750, -1));
-        jPanel9.add(campoCodigoDecSub, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 750, -1));
-        jPanel9.add(campoSalarioDocSub, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 750, -1));
-        jPanel9.add(campoNivelDocSub, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, 750, -1));
-        jPanel9.add(campoTitulacaoDocSub, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 510, 750, -1));
-        jPanel9.add(campoCargaHDocSub, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 570, 750, -1));
-        jPanel9.add(campoCodigoDepDocSub, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 630, 750, -1));
-
-        btnCriarSub.setBackground(new java.awt.Color(30, 58, 138));
-        btnCriarSub.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnCriarSub.setForeground(new java.awt.Color(255, 255, 255));
-        btnCriarSub.setText("Criar substituto");
-        btnCriarSub.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCriarSubActionPerformed(evt);
-            }
-        });
-        jPanel9.add(btnCriarSub, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 660, -1, -1));
+        btnCriarDep.setBackground(new java.awt.Color(30, 58, 138));
+        btnCriarDep.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCriarDep.setForeground(new java.awt.Color(255, 255, 255));
+        btnCriarDep.setText("Criar departamento");
+        jPanel9.add(btnCriarDep, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 620, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -212,44 +184,71 @@ public class TelaCriarSubstituto extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVoltarPaginaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarPaginaInicialActionPerformed
+    private void campoQtdFunciDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoQtdFunciDepActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_campoQtdFunciDepActionPerformed
+
+    private void btnVoltarPaginaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarPaginaInicialActionPerformed
+        
+        
     }//GEN-LAST:event_btnVoltarPaginaInicialActionPerformed
 
-    private void btnCriarSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarSubActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCriarSubActionPerformed
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(TelaCriarDep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(TelaCriarDep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(TelaCriarDep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TelaCriarDep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TelaCriarDep().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCriarSub;
+    private javax.swing.JButton btnCriarDep;
     private javax.swing.JButton btnVoltarPaginaInicial;
-    private javax.swing.JTextField campoCargaHDocSub;
-    private javax.swing.JTextField campoCodigoDecSub;
-    private javax.swing.JTextField campoCodigoDepDocSub;
-    private javax.swing.JTextField campoNivelDocSub;
-    private javax.swing.JTextField campoNomeDocSub;
-    private javax.swing.JTextField campoSalarioDocSub;
-    private javax.swing.JTextField campoTitulacaoDocSub;
+    private javax.swing.JTextField campoCodigoDep;
+    private javax.swing.JTextField campoNomeDepart;
+    private javax.swing.JTextField campoQtdFunciDep;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;

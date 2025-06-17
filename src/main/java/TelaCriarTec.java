@@ -1,18 +1,18 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
 /**
  *
  * @author User
  */
-public class TelaCriarEfetivo extends javax.swing.JInternalFrame {
+public class TelaCriarTec extends javax.swing.JFrame {
 
     /**
-     * Creates new form TelaCriarEfetivo
+     * Creates new form TelaCriarTec
      */
-    public TelaCriarEfetivo() {
+    public TelaCriarTec() {
         initComponents();
     }
 
@@ -38,18 +38,18 @@ public class TelaCriarEfetivo extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         btnVoltarPaginaInicial = new javax.swing.JButton();
+        btnCriarTecnico = new javax.swing.JButton();
+        campoNomeTecnico = new javax.swing.JTextField();
+        campoCodigoTecnico = new javax.swing.JTextField();
+        campoSalarioTecnico = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        campoNivelTecnico = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
+        campoFunTecnico = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        campoAreaDocenteEfetivo = new javax.swing.JTextField();
-        campoCodigoDepDocenteEfetivo = new javax.swing.JTextField();
-        campoTitulacaoDocenteEfetivo = new javax.swing.JTextField();
-        campoNivelDocenteEfetivo = new javax.swing.JTextField();
-        campoSalarioDocenteEfetivo = new javax.swing.JTextField();
-        campoCodigoDocenteEfetivo = new javax.swing.JTextField();
-        campoNomeDocenteEfetivo = new javax.swing.JTextField();
-        btnCriarEfetivo = new javax.swing.JButton();
+        campoCodigoDepTecnico = new javax.swing.JTextField();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel9.setBackground(new java.awt.Color(243, 244, 246));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -59,7 +59,7 @@ public class TelaCriarEfetivo extends javax.swing.JInternalFrame {
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logoUnespMenor.png"))); // NOI18N
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 52)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 58)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Sistema Universitário");
 
@@ -70,7 +70,7 @@ public class TelaCriarEfetivo extends javax.swing.JInternalFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel12Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addGap(15, 15, 15))
         );
@@ -86,7 +86,7 @@ public class TelaCriarEfetivo extends javax.swing.JInternalFrame {
                 .addGap(53, 53, 53))
         );
 
-        jPanel9.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 970, 140));
+        jPanel9.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 140));
 
         jPanel13.setBackground(new java.awt.Color(242, 236, 78));
 
@@ -101,12 +101,12 @@ public class TelaCriarEfetivo extends javax.swing.JInternalFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel9.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 960, 10));
+        jPanel9.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 1000, 10));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(30, 58, 138));
-        jLabel15.setText("<html><center> <h1>Criar docente efetivo</h1><p>Preencha os campos abaixo para criar um docente técnico</p> </center></html>");
-        jPanel9.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 760, 110));
+        jLabel15.setText("<html><center> <h1>Criar funcionário técnico</h1><p>Preencha os campos abaixo para criar um funcionário técnico</p> </center></html>");
+        jPanel9.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 760, 110));
 
         jPanel14.setLayout(new java.awt.CardLayout());
         jPanel9.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, -1, -1));
@@ -139,18 +139,18 @@ public class TelaCriarEfetivo extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(30, 58, 138));
-        jLabel1.setText("<html><p>Nome do docente:</p></html>");
-        jPanel9.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, -1, -1));
+        jLabel1.setText("<html><p>Nome do funcionário:</p></html>");
+        jPanel9.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(30, 58, 138));
-        jLabel4.setText("<html><p>Código do docente:</p></html>");
-        jPanel9.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
+        jLabel4.setText("<html><p>Código do funcionário:</p></html>");
+        jPanel9.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(30, 58, 138));
-        jLabel5.setText("Salário do docente:");
-        jPanel9.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, -1));
+        jLabel5.setText("Salário do funcionário:");
+        jPanel9.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, -1, -1));
 
         btnVoltarPaginaInicial.setBackground(new java.awt.Color(30, 58, 138));
         btnVoltarPaginaInicial.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -161,52 +161,63 @@ public class TelaCriarEfetivo extends javax.swing.JInternalFrame {
                 btnVoltarPaginaInicialActionPerformed(evt);
             }
         });
-        jPanel9.add(btnVoltarPaginaInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 660, -1, -1));
+        jPanel9.add(btnVoltarPaginaInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 650, -1, -1));
+
+        btnCriarTecnico.setBackground(new java.awt.Color(30, 58, 138));
+        btnCriarTecnico.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCriarTecnico.setForeground(new java.awt.Color(255, 255, 255));
+        btnCriarTecnico.setText("Criar técnico");
+        btnCriarTecnico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCriarTecnicoActionPerformed(evt);
+            }
+        });
+        jPanel9.add(btnCriarTecnico, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 650, -1, -1));
+        jPanel9.add(campoNomeTecnico, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 300, 760, -1));
+        jPanel9.add(campoCodigoTecnico, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, 760, -1));
+
+        campoSalarioTecnico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoSalarioTecnicoActionPerformed(evt);
+            }
+        });
+        jPanel9.add(campoSalarioTecnico, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 420, 760, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(30, 58, 138));
-        jLabel2.setText("Nível do docente:");
-        jPanel9.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, -1, -1));
+        jLabel2.setText("Nível do técnico:");
+        jPanel9.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 450, -1, -1));
+
+        campoNivelTecnico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoNivelTecnicoActionPerformed(evt);
+            }
+        });
+        jPanel9.add(campoNivelTecnico, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 480, 760, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(30, 58, 138));
-        jLabel3.setText("Titulação do docente:");
-        jPanel9.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 480, -1, -1));
+        jLabel3.setText("Função do técnico:");
+        jPanel9.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 510, -1, -1));
+
+        campoFunTecnico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoFunTecnicoActionPerformed(evt);
+            }
+        });
+        jPanel9.add(campoFunTecnico, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 540, 760, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(30, 58, 138));
         jLabel7.setText("Código do departamento:");
-        jPanel9.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 600, -1, -1));
+        jPanel9.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 570, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(30, 58, 138));
-        jLabel6.setText("Área do docente:");
-        jPanel9.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 540, -1, -1));
-        jPanel9.add(campoAreaDocenteEfetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 570, 780, -1));
-        jPanel9.add(campoCodigoDepDocenteEfetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 630, 780, -1));
-        jPanel9.add(campoTitulacaoDocenteEfetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, 780, -1));
-
-        campoNivelDocenteEfetivo.addActionListener(new java.awt.event.ActionListener() {
+        campoCodigoDepTecnico.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoNivelDocenteEfetivoActionPerformed(evt);
+                campoCodigoDepTecnicoActionPerformed(evt);
             }
         });
-        jPanel9.add(campoNivelDocenteEfetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 780, -1));
-
-        campoSalarioDocenteEfetivo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoSalarioDocenteEfetivoActionPerformed(evt);
-            }
-        });
-        jPanel9.add(campoSalarioDocenteEfetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, 780, -1));
-        jPanel9.add(campoCodigoDocenteEfetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 780, -1));
-        jPanel9.add(campoNomeDocenteEfetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 780, -1));
-
-        btnCriarEfetivo.setBackground(new java.awt.Color(30, 58, 138));
-        btnCriarEfetivo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnCriarEfetivo.setForeground(new java.awt.Color(255, 255, 255));
-        btnCriarEfetivo.setText("Criar efetivo");
-        jPanel9.add(btnCriarEfetivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 660, -1, -1));
+        jPanel9.add(campoCodigoDepTecnico, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 600, 760, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -232,25 +243,70 @@ public class TelaCriarEfetivo extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVoltarPaginaInicialActionPerformed
 
-    private void campoSalarioDocenteEfetivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSalarioDocenteEfetivoActionPerformed
+    private void btnCriarTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarTecnicoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoSalarioDocenteEfetivoActionPerformed
+    }//GEN-LAST:event_btnCriarTecnicoActionPerformed
 
-    private void campoNivelDocenteEfetivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNivelDocenteEfetivoActionPerformed
+    private void campoSalarioTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSalarioTecnicoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campoNivelDocenteEfetivoActionPerformed
+    }//GEN-LAST:event_campoSalarioTecnicoActionPerformed
 
+    private void campoNivelTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNivelTecnicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoNivelTecnicoActionPerformed
+
+    private void campoFunTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoFunTecnicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoFunTecnicoActionPerformed
+
+    private void campoCodigoDepTecnicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCodigoDepTecnicoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoCodigoDepTecnicoActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(TelaCriarTec.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(TelaCriarTec.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(TelaCriarTec.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TelaCriarTec.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TelaCriarTec().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCriarEfetivo;
+    private javax.swing.JButton btnCriarTecnico;
     private javax.swing.JButton btnVoltarPaginaInicial;
-    private javax.swing.JTextField campoAreaDocenteEfetivo;
-    private javax.swing.JTextField campoCodigoDepDocenteEfetivo;
-    private javax.swing.JTextField campoCodigoDocenteEfetivo;
-    private javax.swing.JTextField campoNivelDocenteEfetivo;
-    private javax.swing.JTextField campoNomeDocenteEfetivo;
-    private javax.swing.JTextField campoSalarioDocenteEfetivo;
-    private javax.swing.JTextField campoTitulacaoDocenteEfetivo;
+    private javax.swing.JTextField campoCodigoDepTecnico;
+    private javax.swing.JTextField campoCodigoTecnico;
+    private javax.swing.JTextField campoFunTecnico;
+    private javax.swing.JTextField campoNivelTecnico;
+    private javax.swing.JTextField campoNomeTecnico;
+    private javax.swing.JTextField campoSalarioTecnico;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -259,7 +315,6 @@ public class TelaCriarEfetivo extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
