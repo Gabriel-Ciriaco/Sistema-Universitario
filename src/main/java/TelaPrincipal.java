@@ -12,9 +12,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     /**
      * Creates new form IUPrincipal
      */
-    public TelaPrincipal() {
+    private Controlador controladorSistema;
+    
+    public TelaPrincipal(Controlador controladorSistema) {
+        this.controladorSistema = controladorSistema;
         initComponents();
-        
     }
 
     /**
@@ -363,6 +365,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         labelDashBoardDep.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         labelDashBoardDep.setForeground(new java.awt.Color(255, 255, 255));
         labelDashBoardDep.setText("00");
+        labelDashBoardDep.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                labelDashBoardDepInputMethodTextChanged(evt);
+            }
+        });
         jPanel19.add(labelDashBoardDep, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 64, 69));
 
         jPanel9.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, -1, 190));
@@ -725,9 +734,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void btnCriarDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarDepActionPerformed
         
+        this.dispose();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCriarDep().setVisible(true);
+                new TelaCriarDep(controladorSistema).setVisible(true);
             }
         });
     }//GEN-LAST:event_btnCriarDepActionPerformed
@@ -747,6 +757,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void labelDashBoardDepInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_labelDashBoardDepInputMethodTextChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_labelDashBoardDepInputMethodTextChanged
 
     /**
      * @param args the command line arguments
@@ -778,8 +792,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run(Controlador controladorSistema) {
+                new TelaPrincipal(controladorSistema).setVisible(true);
+            }
+
+            @Override
             public void run() {
-                new TelaPrincipal().setVisible(true);
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
             }
         });
     }

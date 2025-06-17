@@ -16,10 +16,10 @@ public class TelaCriarDep extends javax.swing.JFrame {
 
     private Controlador controladorSistema;
     
-    public TelaCriarDep() {
-        initComponents();
+    public TelaCriarDep(Controlador controladorSistema) {
         this.setTitle("Criar Departamento");
-        this.controladorSistema = new Controlador();
+        this.controladorSistema = controladorSistema;
+        initComponents();
     }
 
     /**
@@ -215,8 +215,14 @@ public class TelaCriarDep extends javax.swing.JFrame {
     }//GEN-LAST:event_campoQtdFunciDepActionPerformed
 
     private void btnVoltarPaginaInicialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarPaginaInicialActionPerformed
-        
-        
+
+        this.dispose();
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TelaPrincipal(controladorSistema).setVisible(true);
+            }
+        });
+  
     }//GEN-LAST:event_btnVoltarPaginaInicialActionPerformed
 
     private void btnCriarDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarDepActionPerformed
@@ -295,11 +301,15 @@ public class TelaCriarDep extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TelaCriarDep.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run(Controlador controladorSistema) {
+                new TelaCriarDep(controladorSistema).setVisible(true);
+            }
+
+            @Override
             public void run() {
-                new TelaCriarDep().setVisible(true);
+                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
             }
         });
     }
