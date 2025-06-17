@@ -34,6 +34,11 @@ public class Departamento {
   {
     return this.nome;
   }
+  
+  public int getQtdFuncionarios()
+  {
+      return this.contadorFuncionarios;
+  }
 
   public Funcionario[] getFuncionarios()
   {

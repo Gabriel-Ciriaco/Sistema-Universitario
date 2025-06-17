@@ -1,3 +1,7 @@
+
+import com.departamento.Departamento;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -7,13 +11,15 @@
  *
  * @author User
  */
+
 public class TelaCriarDep extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TelaCriarDep
-     */
+    private Controlador controladorSistema;
+    
     public TelaCriarDep() {
         initComponents();
+        this.setTitle("Criar Departamento");
+        this.controladorSistema = new Controlador();
     }
 
     /**
@@ -135,14 +141,20 @@ public class TelaCriarDep extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(30, 58, 138));
         jLabel1.setText("<html><p>Nome do departamento:</p></html>");
-        jPanel9.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, -1, -1));
-        jPanel9.add(campoNomeDepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 790, -1));
+        jPanel9.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, -1, -1));
+        jPanel9.add(campoNomeDepart, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 440, 790, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(30, 58, 138));
         jLabel4.setText("<html><p>Código do departamento:</p></html>");
-        jPanel9.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, -1, -1));
-        jPanel9.add(campoCodigoDep, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 450, 790, -1));
+        jPanel9.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, -1, -1));
+
+        campoCodigoDep.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                campoCodigoDepFocusLost(evt);
+            }
+        });
+        jPanel9.add(campoCodigoDep, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 790, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(30, 58, 138));
@@ -171,6 +183,11 @@ public class TelaCriarDep extends javax.swing.JFrame {
         btnCriarDep.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnCriarDep.setForeground(new java.awt.Color(255, 255, 255));
         btnCriarDep.setText("Criar departamento");
+        btnCriarDep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCriarDepActionPerformed(evt);
+            }
+        });
         jPanel9.add(btnCriarDep, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 620, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -201,6 +218,56 @@ public class TelaCriarDep extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnVoltarPaginaInicialActionPerformed
+
+    private void btnCriarDepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarDepActionPerformed
+        
+        String nomeDepartamento = this.campoNomeDepart.getText();
+        String codigoDepartamento = this.campoCodigoDep.getText();
+        int numFuncionarios = Integer.parseInt(this.campoQtdFunciDep.getText());
+
+
+        if(this.controladorSistema.criarDepartamento(codigoDepartamento, nomeDepartamento, numFuncionarios))
+        {
+            JOptionPane.showMessageDialog(this, "Departamento criado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+
+            JOptionPane.showMessageDialog(this, "Não foi possível criar o departamento!", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        this.campoCodigoDep.setText("");
+        this.campoNomeDepart.setText("");
+        this.campoQtdFunciDep.setText("");
+        
+    }//GEN-LAST:event_btnCriarDepActionPerformed
+
+    private void campoCodigoDepFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campoCodigoDepFocusLost
+        
+        String codigoDepartamento = campoCodigoDep.getText();
+        
+        if(this.controladorSistema.existeDepartamento(codigoDepartamento))
+        {
+            Departamento dep = this.controladorSistema.getDepartamentoPorCodigo(codigoDepartamento);
+            
+            if(dep != null)
+            {
+                campoNomeDepart.setText(dep.getNome());
+                String qtdFuncionarios = Integer.toString(dep.getQtdFuncionarios());
+                campoQtdFunciDep.setText(qtdFuncionarios);
+                btnCriarDep.setEnabled(false);
+                JOptionPane.showMessageDialog(this, "Esse departamento já existe!", "Aviso", JOptionPane.WARNING_MESSAGE);
+                this.campoCodigoDep.setText("");
+                this.campoNomeDepart.setText("");
+                this.campoQtdFunciDep.setText("");
+            }
+        }
+        else
+        {
+            campoNomeDepart.setText("");
+            campoQtdFunciDep.setText("");
+            btnCriarDep.setEnabled(true);
+        }
+        
+    }//GEN-LAST:event_campoCodigoDepFocusLost
 
     /**
      * @param args the command line arguments

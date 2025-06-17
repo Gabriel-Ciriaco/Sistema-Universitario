@@ -120,5 +120,10 @@ public class Controlador {
     {
         return this.universidade.buscarFuncionarioPeloNome(nome);
     }
+    
+    public Departamento getDepartamentoPorCodigo(String codigo)
+    {
+        return universidade.getDepartamentoPorCodigo(codigo);
+    }
 
 }
