@@ -116,5 +116,17 @@ public class Departamento {
 
     return false;
   }
+  
+  public double getGasto()
+  {
+      double gastoTotal = 0.0;
+ 
+      for (int i = 0; i < this.contadorFuncionarios; i++)
+      {
+          gastoTotal += this.funcionarios[i].calcularSalario();
+      }
+      
+      return gastoTotal;
+  }
 
 }

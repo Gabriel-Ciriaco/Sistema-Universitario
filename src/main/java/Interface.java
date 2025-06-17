@@ -78,6 +78,14 @@ public class Interface {
       }
 
     }
+    
+    public void exibirDepartamento(Departamento departamento)
+    {
+        System.out.println("Nome: " + departamento.getNome());
+        System.out.println("Código: " + departamento.getCodigo());
+        System.out.println("Quantidade de Funcionários: " + departamento.getQtdFuncionarios());
+        System.out.println("Gasto Total: " + departamento.getGasto());
+    }
 
     public void exibirFuncionario(Funcionario funcionario)
     {
@@ -115,6 +123,112 @@ public class Interface {
       exibirDocente(efetivo);
 
       System.out.println("Área: " + efetivo.getArea());
+    }
+    
+    public void relatorioGeral()
+    {
+        ArrayList<Departamento> departamentos = 
+                this.controladorSistema.relatorioGeral();
+        
+        if (!departamentos.isEmpty())
+        {
+            for (int i = 0; i < departamentos.size(); i++)
+            {
+                Departamento d = departamentos.get(i);
+
+                System.out.println("--DADOS DO DEPARTAMENTO--");
+
+                this.exibirDepartamento(d);
+                
+                System.out.println("--FUNCIONÁRIOS DO DEPARTAMENTO--");
+                
+                if (d.getQtdFuncionarios() == 0)
+                {
+                    System.out.println("Nenhum funcionário cadastrado neste departamento");
+                }
+                else
+                {
+                    Funcionario[] funcionariosDepartamento = d.getFuncionarios();
+
+                    for (int j = 0; j < d.getQtdFuncionarios(); j++)
+                    {
+                        this.exibirFuncionario(funcionariosDepartamento[j]);
+                    
+                        System.out.println();
+                    }   
+                }
+
+                System.out.println();
+            }
+        }
+        else
+        {
+            System.out.println("Não há departamentos cadastrados");
+        }
+    }
+
+    public void resumoDepartamento()
+    {
+        ArrayList<Departamento> departamentos =
+                this.controladorSistema.resumoDepartamento();
+        
+        if (!departamentos.isEmpty())
+        {
+            for (int i = 0; i < departamentos.size(); i++)
+            {
+                this.exibirDepartamento(departamentos.get(i));
+                
+                System.out.println();
+            }
+        }
+        else
+        {
+            System.out.println("Nenhum departamento foi encontrado.");
+        }
+        
+    }
+
+    public void resumoDepartamentoMinMax(double min, double max)
+    {
+        ArrayList<Departamento> departamentosFaixa =
+                this.controladorSistema.resumoDepartamentosMinMax(min, max);
+        
+        if (!departamentosFaixa.isEmpty())
+        {
+            for (int i = 0; i < departamentosFaixa.size(); i++)
+            {
+                this.exibirDepartamento(departamentosFaixa.get(i));
+                
+                System.out.println();
+            }
+        }
+        else
+        {
+            System.out.println("Nenhum departamento nessa faixa foi encontrado.");
+        }
+        
+    }
+ 
+    public void exibirFuncionariosFaixa(double min, double max)
+    {
+        ArrayList<Funcionario> funcionariosFaixa =
+                this.controladorSistema.funcionarioMinMax(min, max);
+        
+        if (!funcionariosFaixa.isEmpty())
+        {
+            System.out.println("Funcionários com o salário entre: " + min + " e " + max);
+
+            for (int i = 0; i < funcionariosFaixa.size(); i++)
+            {
+                exibirFuncionario(funcionariosFaixa.get(i));
+                
+                System.out.println();
+            }
+        }
+        else
+        {
+            System.out.println("Nenhum funcionário foi encontrado nessa faixa de salário");
+        }
     }
 
     public void exibirFuncionarios()

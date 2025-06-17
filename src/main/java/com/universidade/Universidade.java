@@ -41,6 +41,11 @@ public class Universidade {
   {
     return this.departamentos;
   }
+  
+  public int getContadorDepartamentos()
+  {
+      return this.contadorDepartamentos;
+  }
 
   public Departamento getDepartamentoPorCodigo(String codigo)
   {
@@ -102,6 +107,77 @@ public class Universidade {
 
     return false;
 
+  }
+  
+  public ArrayList<Departamento> relatorioGeral()
+  {
+      ArrayList<Departamento> departamentos = new ArrayList<Departamento>();
+      
+      for (int i = 0; i < this.contadorDepartamentos; i++)
+      {
+          Departamento d = this.departamentos[i];
+          
+          departamentos.add(d);
+      }
+      
+      return departamentos;
+  }
+  
+  public ArrayList<Departamento> resumoDepartamento()
+  {
+      ArrayList<Departamento> departamentos = new ArrayList<Departamento>();
+
+      for (int i = 0; i < this.contadorDepartamentos; i++)
+      {
+          Departamento d = this.departamentos[i];
+          
+          departamentos.add(d);
+      }
+      
+      return departamentos;
+  }
+  
+  public ArrayList<Departamento> resumoDepartamentosMinMax(double min, double max)
+  {
+      ArrayList<Departamento> departamentos = new ArrayList<Departamento>();
+
+      for (int i = 0; i < this.contadorDepartamentos; i++)
+      {
+          Departamento d = this.departamentos[i];
+          
+          if (d.getGasto() >= min && d.getGasto() <= max)
+          {
+              departamentos.add(d);
+          }
+      }
+      
+      return departamentos;
+  }
+ 
+  public ArrayList<Funcionario> funcionarioMinMax(double min, double max)
+  {
+      ArrayList<Funcionario> funcionariosFaixa = new ArrayList<Funcionario>();
+      
+      for (int i = 0; i < this.contadorDepartamentos; i++)
+      {
+          Departamento d = this.departamentos[i];
+          
+          Funcionario[] funcionarios = d.getFuncionarios();
+
+          for (int j = 0; j < d.getQtdFuncionarios(); j++)
+          {
+              Funcionario f = funcionarios[j];
+              
+              double salario = f.calcularSalario();
+              
+              if (salario >= min && salario <= max)
+              {
+                  funcionariosFaixa.add(funcionarios[j]);
+              }
+          }
+      }
+      
+      return funcionariosFaixa;
   }
 
   public ArrayList<Funcionario> exibirFuncionarios()

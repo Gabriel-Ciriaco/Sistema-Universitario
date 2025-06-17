@@ -80,7 +80,27 @@ public class Controlador {
         }
 
     }
+    
+    public ArrayList<Departamento> relatorioGeral()
+    {
+        return this.universidade.relatorioGeral();
+    }
+    
+    public ArrayList<Departamento> resumoDepartamento()
+    {
+        return this.universidade.resumoDepartamento();
+    }
 
+    public ArrayList<Departamento> resumoDepartamentosMinMax(double min, double max)
+    {
+        return this.universidade.resumoDepartamentosMinMax(min, max);
+    }
+
+    public ArrayList<Funcionario> funcionarioMinMax(double min, double max)
+    {
+        return this.universidade.funcionarioMinMax(min, max);
+    }
+    
     public ArrayList<Funcionario> exibirFuncionarios()
     {
         return this.universidade.exibirFuncionarios();
